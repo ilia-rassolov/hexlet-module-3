@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "module-3"
+version = "0.1.0"
+description = ""
+authors = ["IR"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flake8 = "^7.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
