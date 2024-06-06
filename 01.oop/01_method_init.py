@@ -8,7 +8,7 @@ class Counter:
     def dec(self, delta=1):
         return Counter(self.value - delta)
 
-c = Counter(3)
+c = Counter()
 print(f"{c.value=}")
 print(c.inc(8).value)
 # c.inc().inc(5).value
