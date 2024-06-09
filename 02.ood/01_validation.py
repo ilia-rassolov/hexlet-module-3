@@ -10,10 +10,15 @@ class PasswordValidator():
     def validate(self, password):
         self.password = password
         result = {}
+
+        def has_number(self, password):
+            return any(char.isdigit() for char in password)
+
         if len(password) < self.options['min_len']:
             result['min_len'] = 'too small'
-        if any(char.isdigit() for char in password) == self.options['contain_numbers']:
+        if not has_number(self, password) and self.options['contain_numbers']:
             result['contain_numbers'] = 'should contain at least one number'
+
         return result
 
 opt = {'contain_numbers': True}
