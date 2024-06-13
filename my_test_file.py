@@ -50,4 +50,57 @@ mon.get_all_money()
 # html = markdown(markdown_text)
 print('-'*78)
 
+class Address:
+    def __init__(self, street, house, zipcode):
+        self.street = street
+        self.house = house
+        self.zipcode = zipcode
 
+    def __str__(self):
+        return f"{self.street}, {self.house}, {self.zipcode}"
+
+class User:
+    def __init__(self, address):
+        self.street = address['street']
+        self.house = address['house']
+        self.zipcode = address['zipcode']
+
+    def get_address(self):
+        # Поскольку у нас объект-значение,
+        # мы можем создавать его столько раз, сколько нам нужно,
+        # но при необходимости этот процесс можно оптимизировать
+        return Address(self.street, self.house, self.zipcode)
+
+address = {'street': 'pushkina', 'house': 42, 'zipcode': 42000}
+user = User(address)
+print(user.get_address())  #=> pushkina, 42, 42000
+
+print(f"{'|' * 78}")
+
+class Collection:
+    def __init__(self, coll):
+        self.coll = coll
+
+    def map(self, fn):
+        self.coll = list(map(fn, self.coll))
+        return self
+
+    def filter(self, fn):
+        self.coll = list(filter(fn, self.coll))
+        return self
+
+
+    # Возвращает саму коллекцию, а не self.
+    # Этот метод всегда последний в цепочке вызовов Collection.
+    def all(self):
+        return self.coll
+
+names = Collection(['taylor', 'abigail', None])
+
+result = names.map(lambda name: str(name).upper() if name else '').filter(lambda name: name != '')
+        # Переводим в верхний регистр
+        # Отфильтровываем пустые
+
+
+# Выводим коллекцию на экран
+print(result.all())  # => ['TAYLOR', 'ABIGAIL']
