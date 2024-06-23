@@ -104,3 +104,19 @@ result = names.map(lambda name: str(name).upper() if name else '').filter(lambda
 
 # Выводим коллекцию на экран
 print(result.all())  # => ['TAYLOR', 'ABIGAIL']
+
+print('*' * 100)
+
+from datetime import date, timedelta
+
+
+start_day = date.fromisoformat('2008-11-18')
+finish_day = date.fromisoformat('2008-11-22')
+booking_days = []
+while start_day != finish_day:
+    booking_days.append(start_day)
+    start_day += timedelta(days=1)
+
+
+
+print(booking_days, start_day, start_day - timedelta(days=1) in booking_days)

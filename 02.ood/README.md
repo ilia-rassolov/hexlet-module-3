@@ -170,7 +170,92 @@ expected = [{'russia': ['moscow', 'samara']},
 должны быть записаны в нижнем регистре без ведущих и концевых пробелов.
 
 Подсказки
-для вывода промежуточных значений используйте метод .print()
+1. для вывода промежуточных значений используйте метод .print()
+2. 
+from functools import reduce as _reduce
+
+
+class Collection:
+    def __init__(self, iterable):
+        self.iterable = iterable
+
+    def map_(self, func):
+        return Collection(list(map(func, self.iterable)))
+
+    def filter_(self, func):
+        return Collection(list(filter(func, self.iterable)))
+
+    def reduce_(self, func, acc=None):
+        return Collection([_reduce(func, self.iterable, acc)])
+
+    # возвращает коллекцию с уникальными значениями
+    def unique(self):
+        tuples = set(tuple(sorted(d.items())) for d in self.iterable)
+        return Collection(list(dict(t) for t in tuples))
+
+    # группирует коллекцию по указаному ключу
+    def group_by(self, func):
+        def reducer(acc, val):
+            key, value = func(val)
+            if key not in acc:
+                acc[key] = []
+            acc[key].append(value)
+            return acc
+        result_dict = _reduce(reducer, self.iterable, {})
+        return Collection([{k: v} for k, v in result_dict.items()])
+
+    # сортирует колекцию по ключу
+    def sort_by(self, func):
+        return Collection(sorted(self.iterable, key=func))
+
+    def print(self):
+        print(self.iterable)
+        return Collection(self.iterable)
+
+    def all(self):
+        return list(self.iterable)
+
+# 05.Booking
+
+Booking — процесс бронирования чего-либо. В интернете существует множество сайтов, предлагающих бронирование машин, 
+квартир, домов, самолётов и многого другого. Несмотря на то, что такие сайты предлагают разные услуги, букинг везде
+работает почти идентично. Выбираются нужные даты и, если они свободны, производится бронирование.
+
+solution.py
+Реализуйте класс Booking, который позволяет бронировать номер отеля на определённые даты. Метод класса book() принимает 
+на вход две даты в текстовом формате. Если бронирование возможно, то метод возвращает True и выполняет бронирование 
+(даты записываются во внутреннее состояние объекта).
+
+booking = Booking()
+booking.book('2008-11-11', '2008-11-13')  # True
+booking.book('2008-11-12', '2008-11-12')  # False
+booking.book('2008-11-10', '2008-11-12')  # False
+booking.book('2008-11-12', '2008-11-14')  # False
+booking.book('2008-11-10', '2008-11-11')  # True
+booking.book('2008-11-13', '2008-11-14')  # True
+Подсказки
+По обычаям гостиничного сервиса время заселения в номер — после полудня первого дня, а время выселения — до полудня 
+последнего дня. Конкретные часы варьируются в разных отелях. Но в данной практике это не важно, главное понять принцип,
+по которому указываются даты:
+
+booking = Booking()
+
+# забронировать номер на два дня
+booking.book('2008-11-10', '2008-11-12')
+
+# бронь невозможна, 11-го числа номер будет занят
+booking.book('2008-11-11', '2008-11-15')
+
+# бронь возможна, потому что 12-го числа номер освободится
+booking.book('2008-11-12', '2008-11-13')
+
+# бронь невозможна, съём, сроком менее одного дня, обычно не практикуется
+booking.book('2008-11-17', '2008-11-17')
+
+# бронь возможна, съём номера на один день
+booking.book('2008-11-17', '2008-11-18')
+
+from datetime import date
 
 
 
