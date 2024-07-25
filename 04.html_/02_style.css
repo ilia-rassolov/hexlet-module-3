@@ -1,0 +1,17 @@
+#main-title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.content {
+  background-color: blue;
+  }
+
+p {
+  color: white;
+}
+.content > article > h2 {
+  color: red;
+  font-size: 32px;
+}

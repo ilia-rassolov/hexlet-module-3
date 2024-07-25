@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+/* BEGIN (write your solution here) */
+.table {
+  padding: 0;
+  border: 1px solid #ccc;
+  text-align: left
+}
+.table th {
+  font-weight: bold
+  background-color: #eee;
+}
+/* END */
+
+tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}
