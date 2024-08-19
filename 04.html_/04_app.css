@@ -69,3 +69,13 @@ section {
 }
 
 /* END */
+.span-style {
+  padding: 1px;
+
+  color: #fff;
+  background: green;
+}
+
+.inline-block {
+  display: inline-block;
+}

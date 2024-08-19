@@ -10,13 +10,19 @@ table {
 }
 
 /* BEGIN (write your solution here) */
-.table {
-  padding: 0;
+h1 {
+  text-align: left;
+  font-weight: bold;
+}
+
+table td {
+  padding: 8px;
   border: 1px solid #ccc;
   text-align: left
 }
-.table th {
-  font-weight: bold
+table th {
+  padding: 8px;
+  font-weight: bold;
   background-color: #eee;
 }
 /* END */

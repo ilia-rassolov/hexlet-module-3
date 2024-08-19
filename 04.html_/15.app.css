@@ -1,0 +1,53 @@
+body {
+  padding: 50px 0;
+
+  font: 22px/1.5 sans-serif;
+
+  background: #d3cce3;
+  background: linear-gradient(to right, #d3cce3, #e9e4f0);
+}
+
+/* BEGIN (write your solution here) */
+h1,
+h2,
+h3 {
+  color: #212121;
+}
+
+.articles h1 {
+  font-size: 2em;
+}
+
+.articles article h2 {
+  font-size: 1.5em;
+}
+
+.articles article h3 {
+  font-size: 1em;
+}
+
+article {
+  border-top: solid 1px #e5e5e5;
+}
+
+/* END */
+
+.articles {
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* BEGIN (write your solution here) */
+.articles article h3 + p {
+  text-align: right;
+  padding: 20px;
+  color: #686868;
+  font-size: 0.8em;
+  background: #f6f6f6;
+}
+
+/* END */
