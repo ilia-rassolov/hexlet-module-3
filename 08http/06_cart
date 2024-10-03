@@ -1,0 +1,20 @@
+telnet localhost 8080
+
+GET /index HTTP/1.1
+Host: hexlet.local
+
+GET /cart HTTP/1.1
+Host: hexlet.local
+cookie: sessionId=D7cv_Nb46fPXdTWXbk1xAwV63fUCDajO
+
+POST /cart HTTP/1.1
+Host: hexlet.local
+cookie: sessionId=D7cv_Nb46fPXdTWXbk1xAwV63fUCDajO
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 9
+
+item=mask
+
+GET /cart HTTP/1.1
+Host: hexlet.local
+cookie: sessionId=D7cv_Nb46fPXdTWXbk1xAwV63fUCDajO

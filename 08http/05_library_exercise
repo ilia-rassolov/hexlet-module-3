@@ -1,0 +1,10 @@
+telnet localhost 8080
+
+GET /books HTTP/1.1
+Host: hexlet.local
+
+DELETE /books/3 HTTP/1.1
+Host: hexlet.local
+
+GET /books HTTP/1.1
+Host: hexlet.local

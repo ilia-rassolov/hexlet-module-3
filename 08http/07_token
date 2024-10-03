@@ -1,0 +1,14 @@
+telnet localhost 8080
+
+POST /login HTTP/1.1
+Host: hexlet.local
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 30
+connection: close
+
+username=admin&password=qwerty
+
+
+GET /posts HTTP/1.1
+Host: hexlet.local
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJleGVyY2lzZSIsIm5hbWUiOiJoZXhsZXQiLCJpYXQiOjE1MTgyMzQ1OTkxfQ.8wLn2cpbVhnwU-J8fSjvBcM8KGMb6Db4dKQVyYaryCo

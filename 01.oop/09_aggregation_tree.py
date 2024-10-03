@@ -9,19 +9,23 @@ class Node:
         # self.acc = []
 
     def to_list(self):
-        i = next(self)
-        return i
+        i = self.__iter__()
+        return list(i)
 
-    def __next__(self):
-        if not self.key:
-            pass
-        # for i in range(3):
-        #     yield i
+    # def __next__(self):
+    #     if not self.key:
+    #         pass
+    #     # for i in range(3):
+    #     #     yield i
+    #
+    #     yield self
+    #     for x in (self.left, self.right):
+    #         if x:
+    #             yield x.__next__()
 
-        yield self
-        for x in (self.left, self.right):
-            if x:
-                yield x.__next__()
+    def __iter__(self):
+        for x in self:
+            yield x
 
 
 # def len(self):

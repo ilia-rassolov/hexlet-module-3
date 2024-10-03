@@ -120,3 +120,46 @@ while start_day != finish_day:
 
 
 print(booking_days, start_day, start_day - timedelta(days=1) in booking_days)
+
+print('0'*99)
+
+class New_order:
+    def __init__(self, id, customer, shipping_address, items='0', total_price=0):
+        self.id = id
+        self.customer = customer
+        self.shipping_address = shipping_address
+        self.items = items
+        self.total_price = total_price
+
+    # def __eq__(self, other):
+    #     return self.id == other.id
+
+    def add_item(self, item, quantity):
+        self.items += quantity
+        # if item not in self.items:
+        #     self.items[item] = quantity
+        # else:
+        #     self.items[item] += quantity
+
+    def remove_item(self, item):
+        self.items.pop(item, None)
+
+
+order1 = New_order(1, 'customer1', 'address1')
+print(order1.items)
+Item = 'earth'
+order1.add_item(Item, '1')
+print(order1.items)
+order2 = New_order(2, 'customer2', 'address2')
+print(order2.items)
+
+print(order1.customer)
+print(order2.customer)
+print('9'*99)
+def cicl():
+    s = dict()
+    for k, v in ['a', 'b'], [1, 2]:
+        s[k] = v
+    print(s)
+cicl()
+print('1'*99)
