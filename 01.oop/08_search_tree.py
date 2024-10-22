@@ -41,4 +41,4 @@ print(tree.search(6).left.key)# 5
 print(tree.search(6).right.key)  # 7
 print(tree.search(5) is node5)  # True
 print(tree.left.left.key)  # 3
-
+print(Node(3))

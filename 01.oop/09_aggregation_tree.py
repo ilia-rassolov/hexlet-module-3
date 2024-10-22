@@ -6,40 +6,49 @@ class Node:
         self.key = key
         self.left = left
         self.right = right
-        # self.acc = []
+        self.acc = []
+
+    # def __repr__(self):
+    #     return
+
+
+
+    def __next__(self):
+        # if not self.key:
+        #     pass
+        yield self
+        if self.left:
+            yield self.left.__next__()
+        if self.right:
+            yield self.right.__next__()
+
+    # def __iter__(self):
+    #     yield self
+    #     if self.left:
+    #         yield self.left
+    #         yield self.left.__iter__()
+    #     if self.right:
+    #         yield self.right
+    #         yield self.right.__iter__()
+    #
+    # def to_list(self):
+    #     I = self
+    #     return list(next(self))
 
     def to_list(self):
-        i = self.__iter__()
-        return list(i)
+        if not self.key:
+            pass
+        self.acc.append(self.key)
+        if self.left:
+            acc_left = self.left.to_list()
+            self.acc.extend(acc_left)
+        if self.right:
+            acc_right = self.right.to_list()
+            self.acc.extend(acc_right)
+        return self.acc
 
-    # def __next__(self):
-    #     if not self.key:
-    #         pass
-    #     # for i in range(3):
-    #     #     yield i
-    #
-    #     yield self
-    #     for x in (self.left, self.right):
-    #         if x:
-    #             yield x.__next__()
-
-    def __iter__(self):
-        for x in self:
-            yield x
-
-
-# def len(self):
-#     # self.acc = 0
-#     print(f"{self.key=}")
-#     if not self.key:
-#         pass
-#     self.acc += 1
-#     if self.left:
-#         current_value = len(self.left.key)
-#         self.acc += current_value
-#     elif self.right:
-#         self.acc += len(self.left.key)
-#     return self.acc
+    # def __len__(self):
+    #     return sum(map(lambda x: 1, self.acc))
 
 
 tree = Node(
@@ -62,9 +71,12 @@ tree = Node(
     ),
 )
 # tree = Node(5, Node(2, left=Node(1, right=Node(6)), right=Node(4)))
+
+
+print(tree.to_list())  # [9, 4, 8, 6, 3, 7, 17, 22, 20]
 # print((len(tree)))  # 9
 # print(tree.total())  # 97
-print(tree.to_list())  # [9, 4, 8, 6, 3, 7, 17, 22, 20]
+
 # tree.every(lambda key: key <= 22)  # True
 # tree.some(lambda key: key > 22)  # False
 # tree.minimum()  # 3
