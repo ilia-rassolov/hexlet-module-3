@@ -3,9 +3,9 @@ import json
 
 
 data_json = json.load(open('data.json'))
-conn = psycopg2.connect(dbname='hexlet', user='mint')
-columns = {'id': 'SERIAL PRIMARY KEY', 'name': 'VARCHAR(50)', 'description': 'VARCHAR(50)', 'price': 'INT'}
-
+conn = psycopg2.connect(dbname='hexlet', user='user')
+columns = {'id': 'SERIAL PRIMARY KEY', 'title': 'VARCHAR(50)', 'artist_name': 'VARCHAR(50)'}
+# , 'price': 'INT'
 class Table:
 	def __init__(self, name: str, titles_types: dict):
 		self.name = name
@@ -32,8 +32,8 @@ class Table:
 		conn.commit()
 
 
-products_ = Table('products', columns)
-# products_.create_table()
+products_ = Table('songs', columns)
+products_.create_table()
 products_.add_data()
 # print(', '.join([f"%({title})s" for title in products_.titles_types.keys()]))
 
