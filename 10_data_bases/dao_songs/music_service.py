@@ -1,6 +1,6 @@
-from  songDAO import SongDAO
+from songDAO import SongDAO
 import psycopg2
-from psycopg2.extras import NamedTupleCursor
+
 
 conn2 = psycopg2.connect(dbname='hexlet', user='user')
 
@@ -10,13 +10,8 @@ class MusicService:
         self.conn = conn
 
     def get_song_by_title(self, substring):
-        with self.conn.cursor(cursor_factory=NamedTupleCursor) as cur:
-            cur.execute(f"SELECT * FROM songs ORDER BY title")
-            all = cur.fetchall()
-            result = []
-            for row in all:
-                if substring in row.title.lower():
-                    result.append(tuple(row))
-            return result
+        without_register = f"(?i:{substring})"
+        return SongDAO(self.conn).find_songs(without_register)
 
-print(MusicService(conn2).get_song_by_title('sc'))
+
+print(MusicService(conn2).get_song_by_title('Disc'))

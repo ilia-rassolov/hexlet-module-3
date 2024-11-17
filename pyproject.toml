@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 flake8 = "^7.0.0"
 pytest = "^8.2.2"
+gunicorn = "^23.0.0"
 
 
 [build-system]

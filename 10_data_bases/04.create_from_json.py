@@ -4,13 +4,13 @@ import json
 
 data_json = json.load(open('data.json'))
 conn = psycopg2.connect(dbname='hexlet', user='user')
-columns = {'id': 'SERIAL PRIMARY KEY', 'title': 'VARCHAR(50)', 'artist_name': 'VARCHAR(50)'}
-# , 'price': 'INT'
+columns = {'id': 'SERIAL PRIMARY KEY', 'manufacturer': 'VARCHAR(50)', 'model': 'VARCHAR(50)', 'plate': 'VARCHAR(50)',
+		   'color': 'VARCHAR(50)', 'user_id': 'INT'}
+# ,
 class Table:
 	def __init__(self, name: str, titles_types: dict):
 		self.name = name
 		self.titles_types = titles_types
-
 
 	def create_table(self):
 		params = [f"{title} {type}" for title, type in self.titles_types.items()]
@@ -18,7 +18,6 @@ class Table:
 		with conn.cursor() as curs:
 			curs.execute(f"CREATE TABLE {self.name} ({string_create});")
 			conn.commit()
-
 
 	def add_data(self):
 		with conn.cursor() as curs:
@@ -32,8 +31,6 @@ class Table:
 		conn.commit()
 
 
-products_ = Table('songs', columns)
+products_ = Table('cars', columns)
 products_.create_table()
 products_.add_data()
-# print(', '.join([f"%({title})s" for title in products_.titles_types.keys()]))
-
