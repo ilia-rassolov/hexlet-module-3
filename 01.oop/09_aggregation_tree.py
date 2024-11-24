@@ -1,44 +1,14 @@
 class Node:
-    acc = None
-    value = None
-
-    def __init__(self, key=None, left=None, right=None):
+    def __init__(self, key, left=None, right=None):
         self.key = key
         self.left = left
         self.right = right
-        self.acc = []
 
-    # def __repr__(self):
-    #     return
-
-
-
-    def __next__(self):
-        # if not self.key:
-        #     pass
-        yield self
-        if self.left:
-            yield self.left.__next__()
-        if self.right:
-            yield self.right.__next__()
-
-    # def __iter__(self):
-    #     yield self
-    #     if self.left:
-    #         yield self.left
-    #         yield self.left.__iter__()
-    #     if self.right:
-    #         yield self.right
-    #         yield self.right.__iter__()
-    #
-    # def to_list(self):
-    #     I = self
-    #     return list(next(self))
+    def __repr__(self):
+        return self
 
     def to_list(self):
-        if not self.key:
-            pass
-        self.acc.append(self.key)
+        self.acc = [self.key]
         if self.left:
             acc_left = self.left.to_list()
             self.acc.extend(acc_left)
@@ -47,9 +17,23 @@ class Node:
             self.acc.extend(acc_right)
         return self.acc
 
-    # def __len__(self):
-    #     return sum(map(lambda x: 1, self.acc))
+    def __len__(self):
+        return len(self.to_list())
 
+    def total(self):
+        return sum(self.to_list())
+
+    def minimum(self):
+        return min(self.to_list())
+
+    def maximum(self):
+        return max(self.to_list())
+
+    def every(self, fn):
+        return sum(map(fn, self.to_list())) == len(self.to_list())
+
+    def some(self, fn):
+        return sum(map(fn, self.to_list())) > 0
 
 tree = Node(
     10,
@@ -70,17 +54,15 @@ tree = Node(
         ),
     ),
 )
-# tree = Node(5, Node(2, left=Node(1, right=Node(6)), right=Node(4)))
 
+print(tree.to_list())
+print(tree.__len__())
+print(tree.total())
+print(tree.minimum())
+print(tree.maximum())
+print(tree.every(lambda key: key <= 20))
+print(tree.some(lambda key: key <= 20))
+print(tree.__repr__())
 
-print(tree.to_list())  # [9, 4, 8, 6, 3, 7, 17, 22, 20]
-# print((len(tree)))  # 9
-# print(tree.total())  # 97
-
-# tree.every(lambda key: key <= 22)  # True
-# tree.some(lambda key: key > 22)  # False
-# tree.minimum()  # 3
-# tree.maximum()  # 22
-# tree2 = Node(3, Node(1), Node(2))
 # tree2  # выводится repr(tree2)
 # # Node(3, Node(1, None, None), Node(2, None, None))

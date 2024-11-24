@@ -36,7 +36,7 @@ tree = Node(
     ),
 )
 
-print(tree.search(4).key)  # 6
+print(tree.search(4))  # 6
 print(tree.search(6).left.key)# 5
 print(tree.search(6).right.key)  # 7
 print(tree.search(5) is node5)  # True
