@@ -1,0 +1,12 @@
+<div>
+  {{ school.id }}: {{ school.name }}
+</div>
+
+<a href="{{ url_for('schools_edit', id=school.id) }}">Редактировать пользователя</a>
+
+<form action="{{ url_for('schools_delete', id=school.id) }}" method="post"
+onsubmit="return confirm('Are you sure you want to delete school? This action cannot be undone.');">
+<input type="submit" value="Remove">
+</form>
+
+<p><a href="{{ url_for('schools_index') }}">Назад к списку пользователей</a></p>

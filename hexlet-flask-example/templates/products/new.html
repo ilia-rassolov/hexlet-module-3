@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="{{ url_for('products') }}">Products</a>
+        <!-- BEGIN (write your solution here) -->
+
+    <form action="/products" method="post">
+    {% include "products/form.html" %}
+    <input type="submit" value="Add new product">
+    </form>
+        <!-- END -->
+  </body>
+</html>

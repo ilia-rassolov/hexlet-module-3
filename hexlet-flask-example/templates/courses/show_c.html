@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="/courses">Все курсы</a>
+    <!-- BEGIN (write your solution here) -->
+    <table>
+      {% for key, value in course.items() %}
+      <tr>
+        <td>{{ key|e }}</td>
+        <td>{{ value|e }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <!-- END -->
+  </body>
+</html>

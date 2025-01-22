@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="{{ url_for('posts_get') }}">Посты</a>
+<!-- BEGIN (write your solution here) -->
+    <form action="{{ url_for('posts_patch', id=post.id) }}" method="post">
+
+        {% include "posts/form.html" %}
+
+        <input type="submit" value="Edit">
+    </form>
+<!-- END -->
+  </body>
+</html>

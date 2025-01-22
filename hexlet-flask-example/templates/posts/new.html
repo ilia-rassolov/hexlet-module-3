@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+  <a href="{{ url_for('posts_get') }}">Посты</a>
+  <!-- BEGIN (write your solution here) -->
+  <form action="/posts" method="post">
+        <h1>New post</h1>
+        <div>
+            <label>
+                Заголовок
+                <input type="text" required name="title" value="{{ post.title|default('') }}">
+            </label>
+            {% if errors['title'] %}
+            <div>{{ errors['title'] }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <label>
+                Тело
+                <input type="text" required name="body" value="{{ post.body|default('') }}">
+            </label>
+            {% if errors['body'] %}
+            <div>{{ errors['body'] }}</div>
+            {% endif %}
+        </div>
+        <input type="submit" value="Create post">
+    </form>
+
+  <!-- END -->
+  </body>
+</html>

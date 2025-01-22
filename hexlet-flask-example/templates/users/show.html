@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="/users">Пользователи</a>
+    <!-- BEGIN (write your solution here) -->
+    <table>
+      {% for key, value in user.items() %}
+      <tr>
+        <td>{{ key|e }}</td>
+        <td>{{ value|e }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <!-- END -->
+  </body>
+</html>

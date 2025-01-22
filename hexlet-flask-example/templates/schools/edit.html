@@ -1,0 +1,22 @@
+<h1>Edit School</h1>
+<hr>
+{% if errors %}
+<ul class=flashes>
+    {% for _, error in errors.items() %}
+    <li class="error">{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<hr>
+<form action="{{ url_for('schools_patch', id=school.id) }}" method="post">
+    <div>
+      <label>
+          Название *
+          <input type="text" name="name" value="{{ school.name }}">
+      </label>
+      {% if errors %}
+          <div>{{ errors.name }}</div>
+      {% endif %}
+    </div>
+    <input type="submit" value="Update">
+</form>
