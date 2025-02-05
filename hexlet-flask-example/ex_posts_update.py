@@ -15,7 +15,7 @@ from data.repo_post_cc import PostsRepository
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
-# app.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# app.py.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 
 @app.route('/')

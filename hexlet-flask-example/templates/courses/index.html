@@ -1,18 +1,19 @@
 {% extends "courses/layout.html" %}
 
+<!-- этот блок заменит блок title из родительского шаблона -->
 {% block title %}Курсы{% endblock %}
 
+<!-- этот блок заменит блок content из родительского шаблона -->
 {% block content %}
 <table>
-     {% for course in courses %}
      <tr>
        <td>
-           {{ course.id }}
+           <p>td from index</p>
        </td>
        <td>
-           {{ course.name }}
+           <p>td2 from index</p>
        </td>
      </tr>
-     {% endfor %}
  </table>
 {% endblock %}
+

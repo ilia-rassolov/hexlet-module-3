@@ -6,7 +6,7 @@ POST /session/new — создает сессию
 POST, DELETE /session/delete — удаляет сессию
 После выполнения каждого из этих действий происходит редирект на главную.
 
-scr/app.py
+scr/app.py.py
 Реализуйте указанные выше маршруты. Список пользователей с именами и паролями доступен в списке users. Чтобы получить
  пользователя, используйте функцию get_user().
 Если имя или пароль неверные, то происходит редирект на главную, и показывается флеш сообщение Wrong password or name.
@@ -27,7 +27,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key2'
-# app.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# app.py.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 
 users = [

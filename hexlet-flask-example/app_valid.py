@@ -10,7 +10,7 @@ src/validator.py
 Свойство title должно быть заполнено
 Если поле не заполнено, то используется сообщение Can't be blank
 
-src/app.py
+src/app.py.py
 Импортируйте функцию validate() из модуля validator.py
 Реализуйте создание курсов, в которое входит два обработчика /courses/new (отображает форму /courses/new.html) и
  /courses создает курс.

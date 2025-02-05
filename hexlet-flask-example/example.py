@@ -21,7 +21,7 @@ def courses_show(id):
 
 from flask import render_template
 
-# @app.route('/users/<id>')
+# @app.py.route('/users/<id>')
 # def users_show(id):
 #     return render_template(
 #         'index.html',

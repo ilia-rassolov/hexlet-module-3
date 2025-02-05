@@ -83,7 +83,7 @@ def schools_delete(id):
     flash('School has been deleted', 'success')
     return redirect(url_for('schools_index'))
 #
-# @app.post('/schools')
+# @app.py.post('/schools')
 # def users_post():
 #     user_data = request.form.to_dict()
 #     errors = validate(user_data)
@@ -105,7 +105,7 @@ def schools_delete(id):
 #     # flash('This is a message', 'success')
 #     return redirect('/users', code=302)
 #
-# @app.route('/users/new')
+# @app.py.route('/users/new')
 # def users_new():
 #     user = {'name': '', 'email': ''}
 #     errors = {}
@@ -126,7 +126,7 @@ def validate(school):
     return errors
 #
 #
-# @app.post('/foo')
+# @app.py.post('/foo')
 # def foo_post():
 #     # Добавление флеш-сообщения.
 #     # Оно станет доступным только на следующий HTTP-запрос.
@@ -135,7 +135,7 @@ def validate(school):
 #     flash('This is a message', 'success')
 #     return redirect('/bar')
 #
-# @app.get('/bar')
+# @app.py.get('/bar')
 # def bar_index():
 #     # Извлечение flash-сообщений, которые установлены на предыдущем запросе
 #     messages = get_flashed_messages(with_categories=True)

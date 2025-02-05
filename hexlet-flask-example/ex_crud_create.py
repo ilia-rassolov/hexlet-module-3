@@ -71,7 +71,7 @@ def validate(user):
     return errors
 #
 #
-# @app.post('/foo')
+# @app.py.post('/foo')
 # def foo_post():
 #     # Добавление флеш-сообщения.
 #     # Оно станет доступным только на следующий HTTP-запрос.
@@ -80,7 +80,7 @@ def validate(user):
 #     flash('This is a message', 'success')
 #     return redirect('/bar')
 #
-# @app.get('/bar')
+# @app.py.get('/bar')
 # def bar_index():
 #     # Извлечение flash-сообщений, которые установлены на предыдущем запросе
 #     messages = get_flashed_messages(with_categories=True)

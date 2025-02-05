@@ -1,7 +1,7 @@
 '''
 В этом задании вам предстоит добавить флеш-сообщения, которые позволяют сообщить пользователю о результате его действий.
 
-src/app.py
+src/app.py.py
 Реализуйте два обработчика:
 
 / — выводит флеш-сообщения в шаблон templates1/index.html.
@@ -23,7 +23,7 @@ import os
 
 
 app = Flask(__name__)
-# app.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
+# app.py.config.py['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.secret_key = 'super secret key'
 
 
@@ -48,8 +48,8 @@ def course_post():
     # Quick test configuration. Please use proper Flask configuration options
     # in production settings, and use a separate file or environment variables
     # to manage the secret key!
-    # app.secret_key = 'super secret key'
-    # app.config.py['SESSION_TYPE'] = 'filesystem'
+    # app.py.secret_key = 'super secret key'
+    # app.py.config.py['SESSION_TYPE'] = 'filesystem'
     #
-    # app.debug = True
-    # app.run()
+    # app.py.debug = True
+    # app.py.run()

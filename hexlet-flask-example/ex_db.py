@@ -1,5 +1,5 @@
 '''
-src/app.py
+src/app.py.py
 Добавьте обработчики для добавления нового товара и для просмотра информации о товаре:
 
 GET запрос на адрес /products/new — отрисовка формы добавления нового товара
@@ -32,14 +32,14 @@ import os
 
 from data.repo_db import get_db, ProductsRepository
 from validator_db import validate
-import psycopg
+import psycopg2
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['DATABASE_URL'] = os.getenv('DATABASE_URL')
 
-conn_ = psycopg.connect(dbname='hexlet', user='user')
+conn_ = psycopg2.connect(dbname='hexlet', user='user')
 repo = ProductsRepository(conn_)
 
 
@@ -72,7 +72,6 @@ def add_product():
     if errors:
         return render_template('products/new.html', errors=errors, product=product_data), 422
     repo.save(product_data)
-    render_template('products/new.html', product=product_data, errors=errors), 422
     return redirect(url_for('products'))
 
 
